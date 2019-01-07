@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="client/fragments/layout :: head"></head>
+<body>
+    <nav th:replace="client/fragments/layout :: header"></nav>
+
+    <div class="container main-content list">
+    	<a class="navbar-brand" th:href="@{~/slides}" th:text="#{slide.pagename}"></a>    	
+    	<th:block th:if="${#lists.isEmpty(slides)}">
+		    <h3 th:text="#{event.noevent}">No contacts</h3>
+		</th:block>
+		
+        <th:block th:unless="${#lists.isEmpty(slides)}">            
+            <div class="row">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th th:text="#{slide.image}"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="slide : ${slides}">
+                            <td width="500px"><img class="img img-responsive" th:if="${!#strings.isEmpty(slide.image)}" th:src="@{'~/upload/slide/' +${slide.image}}"  height="100" width="1000"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </th:block>
+    </div>
+    <!-- /.container -->
+
+    <footer th:replace="client/fragments/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <base href="/"/>
+	<title  th:if="${headTitle!=null}" th:text="#{${headTitle}}">Spring MyContact</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="IE=adge">
+    <meta name="viewpost" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <link rel="stylesheet" href="client/css/bootstrap.min.css">
+    <link rel="stylesheet" href="client/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="client/css/main.css" rel="stylesheet" type="text/css" media="screen,print" />
+    <link href="client/css/service.css" rel="stylesheet" type="text/css" media="screen,print" />
+    <link href="client/css/event.css" rel="stylesheet" type="text/css" media="screen,print" />
+    <link href="client/css/about.css" rel="stylesheet" type="text/css" media="screen,print" />
+    <link href="client/css/contact.css" rel="stylesheet" type="text/css" media="screen,print" />
+    <script type="text/javascript" src="client/js/jquery-3.2.1.min.js"> </script>
+     <script type="text/javascript" src="client/js/bootstrap.min.js"> </script>
+    <script type="text/javascript">
+		$(document).ready(function() {
+		    $("#locales").change(function () {
+		        var selectedOption = $('#locales').val();
+		        var url=$(this).find(':selected').data("url");
+		       
+		        if (selectedOption != ''){
+		            window.location.replace(url+'\?lang=' + selectedOption);
+		        }
+		    });
+		});
+	</script>
+	<script>
+	var baseurl="http://www.vinhsangvn.com/";
+	</script>
+</head>
+<body>
+    <div th:fragment="header" id="headerdemo" style="background: #F0FFFF;">
+        <div class="container-fluid">  
+        <div class="row" style="">
+            <div class="col-sm-12">
+                    <div class="col-sm-4" style="margin-top: 20px;">		
+                        <div class="images">
+                            <img class="ui centered image" src="client/images/logovinhsang.jpg" alt="Logo" width="100%;" height="130px">
+                            <span class="" style="color: #ff6600; text-align: center;" ><h5 style=" font-size: 14px; font-weight: bold;"><span th:text="#{layout.slogan}"></span></span></h5></span>
+                        </div>                  
+                    </div>       
+                    <div class="col-sm-7">
+                        <div class="row" >		
+                            <div class="col-sm-12"  style="padding-top: 50px;">
+                                <div class="col-sm-5">
+                                    <div class="header-support">                                       
+                                        <div class="supportBorder">                                                   
+                                            <img src="client/images/Graphicloads-100-Flat-Phone.ico" alt="" width="50px;" height="50px;">
+                                            <div class="phone" style="margin-left: 60px; margin-top: -46px; color: #ff6600;">
+												<span th:text="#{layout.hotline}">Hotline</span><br>                                                       
+                                                <span style=" font-weight: bold;"></span>
+                                                     (84-8)39117523
+                                            </div>                                                
+                                        </div>
+                                   </div>
+                                </div>
+                                <div class="col-sm-6 text-center" align="right" style="left: 80px;"> 
+                                    <div class="col-sm-12">
+                                    <div class="form-language" style=" margin-right: -30px; margin-top: -35px;">
+                                        <label for="select-language" style="color: #ff6600;" th:text="#{layout.yourlanguage}">Your Language:</label>
+                                        <div class="SelectWrapper" style="z-index: 10;">
+                                                <select id="locales">
+												    <option value=""   th:attr="data-url=${page.url}" th:text="#{layout.lang.change}"></option>
+												    <option value="en" th:attr="data-url=${page.url}" th:text="#{layout.lang.eng}"></option>
+												    <option value="vi" th:attr="data-url=${page.url}" th:text="#{layout.lang.vi}"></option>
+												</select>  
+                                            </div>
+                                        </div>                    
+                                   </div>
+                                </div> 
+                            </div>  
+                        </div>                                               
+                        <div class="row">        
+                                <div class="col-sm-12" >
+                                    <div class="container-fluid">
+                                        <nav class="navbar navbar-default">
+                                                
+                                                <div class="navbar-header">
+                                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                                    <span class="sr-only">Toggle navigation</span>
+                                                    <span class="icon-bar"></span>
+                                                    <span class="icon-bar"></span>
+                                                    
+                                                    
+                                                    </button>
+                                                </div>
+                                                <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="">
+                                                    <ul class="nav navbar-nav">
+                                                    <li>
+                                                        <a href="home" >
+                                                            <span ><i class="fa fa-home" style="font-size:20px"></i></span>
+                                                            <span th:text="#{layout.menu.home }"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="about" > 
+                                                            <span><i class="fa fa-info-circle" ></i></span>
+                                                            <span th:text="#{layout.menu.about}"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="services" >
+                                                            <span><i class="fa fa-user"></i></span>
+                                                            <span th:text="#{layout.menu.service}"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="events" >
+                                                            <span><i class="fa fa-calendar"></i></span>
+                                                            <span th:text="#{layout.menu.event}"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="contact/create" >
+                                                            <span><i class="fa fa-tty"></i></span>
+                                                             <span th:text="#{layout.menu.contact}"></span>
+                                                        </a>
+                                                    </li>
+                                                    </ul>
+                                                    <ul class="nav navbar-nav navbar-right" style="">
+                                                    
+                                                    <li><a href="#" style="color: #ff6600;" ><span class="glyphicon glyphicon-user"></span><span th:text="#{layout.login}"></span></a></li>
+                                                    </ul>
+                                                </div><!--/.nav-collapse -->
+                                                </div><!--/.container-fluid -->
+                                            </nav>
+                                        </div>    
+                                   </div>    		    
+                               </div>
+                          </div>
+                      </div>
+                  </div>
+             </div>        
+         <div th:fragment="footer" id="footer" >
+             <div class="container-fluid" style="" >              
+                    <div class="col-sm-12">
+                        <div class="row" style="background-color:#2e2e1f; ">
+                            <div class="col-sm-8">
+                                <h4 style="color: #7cbb01;" th:text="#{footer.contact}"><b></b></h4>
+                                <div><br>
+                                     <span class="glyphicon glyphicon-map-marker"></span>
+                                     <span th:text="#{footer.address}">Tầng 31, Trung Tâm Thương Mại Sài Gòn, 37 Tôn Đức Thắng, Phường Bến nghé, Quận 1, Thành Phố Hồ Chí Minh.</span>
+                                </div>
+                                <br>   
+                                <div>       
+                                    <span class="glyphicon glyphicon-earphone"></span>
+                                     <span>(84-8) 39117523.</span>      
+                                </div><p></p>
+                            </div><br>
+                            <div class="col-sm-4" style="margin-top: 40px; color: #7cbb01;">
+                                <span class="glyphicon glyphicon-globe"></span>
+                                <a href="#"> 
+                                    www.vinhsangvn.com
+                                </a>
+                                <p></p>
+                                <span class="glyphicon glyphicon-envelope"></span>
+                                <a href="#">                            
+                                    info@vinhsangvn.com
+                                </a>
+                            </div>
+                        </div>     
+                    </div> 
+                    <div class="footer">
+                        <div class="container-fluid" style=""> 
+                            <div class="row">
+                                <div class="col-sm-12 text-center" style="background: #7cbb01; color: white; font-size: 20px; ">
+                                        <p style="margin-top: 5px; margin-bottom: 5px;" th:text="#{footer.copyright}">@ Copyright Công Ty TNHH VINH SÁNG</p>
+                                </div>
+                            </div> 
+                        </div>     
+                    </div>
+              </div>      
+         </div>       
+     
+</body>
+</html>

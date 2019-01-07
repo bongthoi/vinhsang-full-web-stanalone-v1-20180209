@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="client/fragments/layout::head"></head>
+<body>
+    <div th:replace="client/fragments/layout::header" id="headerdemo" style="background: #F0FFFF;"></div>        
+    <div th:replace="client/fragments/layout::slide" id="myCarousel" class="carousel slide" data-ride="carousel"></div>
+    
+    <div class="container-fluid" style="margin-bottom: 30px;">
+    	<div class="col-sm-12">
+              <div class="row">
+                  <ol class="breadcrumb" style="background: #228624;">
+                      <li>
+                          <a href="home" >
+                              <span><i class="fa fa-home" style="font-size:20px"></i></span>
+                               <span th:text="#{layout.menu.home }"></span>
+                              
+                          </a>
+                      </li>
+                      <li>
+                          <a href="services">
+                              <span><i class="fa fa-user"></i></span>
+                             <span th:text="#{layout.menu.service}"></span>
+                          </a>
+                      </li>    
+                       
+                  </ol>   
+            </div> 
+       </div>
+     </div> 
+    <div class="col-md-12" style="">
+        		<h2 th:text="${slang.title}"></h2>
+                <div class="images">
+                    <div class="item">
+                            <div class="item-body">
+                                <div class="introtext" style="margin-top: 30px;textalign:center;">
+                                    <p th:utext="${slang.content}" style="textalign:center;"></p>
+                                </div>	
+                            </div>
+                        </div>
+                    </div>           
+              </div>
+    <div th:replace="client/fragments/layout::footer" id="footer" ></div>       
+</body>
+</html>

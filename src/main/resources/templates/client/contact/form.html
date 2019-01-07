@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="client/fragments/layout::head"></head>
+<body>
+    <div th:replace="client/fragments/layout::header" id="headerdemo" style="background: #F0FFFF;"></div>        
+    <div th:replace="client/fragments/layout::slide" id="myCarousel" class="carousel slide" data-ride="carousel"></div>
+    
+    <div class="container-fluid" >  
+        <div class="col-sm-12">
+              <div class="row">
+                  <ol class="breadcrumb" style="background: #228624;">
+                      <li>
+                          <a href="home">
+                              <span><i class="fa fa-home" style="font-size:20px"></i></span>
+                              <span th:text="#{layout.menu.home }"></span>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="contact/create">
+                              <span><i class="fa fa-user"></i></span>
+                             <span th:text="#{layout.menu.contact }"></span>
+                          </a>
+                      </li>    
+                  </ol>   
+            </div> 
+       </div>
+          <div id="form" style="">
+          <div class="box-header with-border">
+    								 		  <!-- /* Handle the flash message */-->
+									    <th:block th:if="${message != null}">
+									        <!-- /* The message code is returned from the @Controller */ -->
+									        <div th:replace="client/fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
+									    </th:block>
+									      <!-- /* end Handle the flash message */-->
+    						</div>
+            <div class="container">          
+                <div class="col-sm-6">
+                    <div class="contac-info-left">
+	                <div class="company-info">
+	                <p class="company" th:text="#{company.name}"></p>
+	                <p class="address"><i class="fa fa-map-marker" style="font-size: 17px;"></i> <span th:text="#{footer.address}"></span></p>
+	                <p><i class="fa fa-phone" style="font-size: 17px;"></i> (84-8) 39117523.</p>
+	                <p><i class="fa fa-envelope" style="font-size: 17px;"></i> <a href="info@vinhsangvn.com">info@vinhsangvn.com</a></p>
+	                <p><i class="fa fa-globe" style="font-size: 17px;"></i> <a href="www.vinhsangvn.com" rel="nofollow">www.vinhsangvn.com</a></p>
+	                </div>
+	            </div>
+                </div>
+                <div class="col-sm-6" style="">
+                <h4 th:text="#{footer.contact}">Thông tin liên hệ:</h4>
+                    <div style = "">
+                        <form class = "bs-example bs-example-form" role = "form" action="#" th:action="@{~/contact/save}" th:object="${contact}" method="POST" novalidate="novalidate">
+                        
+                        	<input type="hidden"  th:field="*{id}">
+                            <div class = "input-group">
+                                <span class = "input-group-addon">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>                      
+                                </span>
+                                <input type = "text"  class = "form-control" th:placeholder="#{contact.placeholder.email}"  th:field="*{email}" th:errorclass="field-error" >
+                                
+                            </div>
+                                <em th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red;"></em>
+                            <br>
+
+                            <div class = "input-group">
+                                <span class = "input-group-addon">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </span>
+                                <input type = "text" class = "form-control"  th:placeholder="#{contact.placeholder.name}" th:field="*{name}" th:errorclass="field-error">
+                            </div>
+                                <em th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red;"></em>
+                            <br>
+                            
+                            <div class = "input-group">
+                                <span class = "input-group-addon">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                </span>
+                                <input type = "text" class =" form-control"  th:placeholder="#{contact.placeholder.phone}" th:field="*{phone}">
+                                
+                            </div>                     
+                            <br>
+                            <div class = "input-group">
+                                <textarea   rows="8" cols="65"  class="form-control" id="inputTextarea" name="content" th:field="*{content}" th:placeholder="#{contact.placeholder.content}"> </textarea> 
+                            </div>
+                            <br>
+                            <div class = "input-group text-end">
+                                <a href="#">
+                                    <button type="submit" th:text="#{contact.send}" class="w3-btn w3-white w3-border w3-border-red w3-text-red w3-round-large" style="padding: 5px 8px;">Gửi yêu cầu</button>
+                                </a>
+                            </div>
+                        </form>                 
+                    </div>
+                </div>
+            </div> 
+        </div>
+     </div>  
+        
+     <div th:replace="client/fragments/layout::footer" id="footer" ></div>       
+</body>
+</html>

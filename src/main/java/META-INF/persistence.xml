@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="vinhsang-full-web-stanalone-v1">
+		<class>vinhsang.domain.About</class>
+		<class>vinhsang.domain.Contact</class>
+		<class>vinhsang.domain.Emailfeedback</class>
+		<class>vinhsang.domain.Role</class>
+		<class>vinhsang.domain.Slide</class>
+		<class>vinhsang.domain.User</class>
+		<class>vinhsang.domain.Event</class>
+		<class>vinhsang.domain.EventsLang</class>
+		<class>vinhsang.domain.Language</class>
+		<class>vinhsang.domain.Service</class>
+		<class>vinhsang.domain.ServicesLang</class>
+	</persistence-unit>
+</persistence>

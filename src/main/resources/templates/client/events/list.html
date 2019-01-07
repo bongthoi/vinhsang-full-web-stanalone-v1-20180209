@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="client/fragments/layout::head"></head>
+<body>
+    <div th:replace="client/fragments/layout::header" id="headerdemo" style="background: #F0FFFF;"></div>        
+    <div th:replace="client/fragments/layout::slide" id="myCarousel" class="carousel slide" data-ride="carousel"></div>
+    
+    <div class="container-fluid" style="margin-bottom: 30px;">
+    	<div class="col-sm-12">
+              <div class="row">
+                  <ol class="breadcrumb" style="background: #228624;">
+                      <li>
+                          <a href="home" >
+                              <span><i class="fa fa-home" style="font-size:20px"></i></span>
+                               <span th:text="#{layout.menu.home }"></span>
+                              
+                          </a>
+                      </li>
+                      <li>
+                          <a href="events">
+                              <span><i class="fa fa-user"></i></span>
+                             <span th:text="#{layout.menu.event}"></span>
+                          </a>
+                      </li>    
+                  </ol>   
+            </div> 
+       </div>
+     </div> 
+     <div id="wrapper" style="">
+     		<th:block th:if="${#lists.isEmpty(events)}">
+		    		<h3 th:text="#{event.noevent}">No services</h3>
+			</th:block>
+			<th:block th:unless="${#lists.isEmpty(events)}"> 
+          <div class="contents current" style="display: block;">
+          
+              <div style="display: block;" th:each="event:${events}">
+                  <div class="col-md-12" style="border-bottom: 1px solid #228624; margin-bottom: 20px;">
+                        <a th:href="@{~/event/{id}/detail(id=${event.event.id})}">
+                                    <span style="width:100%;color:#228624; font-size:20px; font-weight:normal"  th:text="${#strings.toUpperCase(event.title)}">	   
+                                    HOẠT ĐỘNG TỪ THIỆN 2017 TẠI ĐƠN DƯƠNG, LÂM ĐỒNG
+                                    </span>
+                            </a>
+                        <div class="row" style="margin-top:10px;"> 
+                            <div class="col-md-2" style="text-align:center">
+                                <a >
+			                    	<img th:src="@{'~/'+'upload/event/' +${event.event.image}}" class="images" src="client/images/vivmall.jpg" data-original="" alt="" title="" style="display: block;"  width="100%;" height="200px;">
+			                    </a>
+                            </div>
+                            <div class="col-md-9" style="margin-left: 25px;">     
+                                <br>
+                                <span style="width:100%;font-size:15px;font-weight:normal" th:text="${event.description}"></span><br><br><p></p>
+                                <span style="width:100%; font-size:15px; font-weight:normal;">
+                                        <a th:href="@{~/event/{id}/detail(id=${event.event.id})}" target="">
+                                            <button class="w3-btn w3-white w3-border w3-border-red w3-text-red w3-round-large" style="padding: 5px 8px; margin-top: 40px; margin-bottom: 20px;" th:text="#{event.readmore}">Read More</button>		
+                                        </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+              </div>
+          </div>
+          <th:block>
+          <div th:replace="client/fragments/paginationbar :: paginationbar"></div>
+      </div>   
+     <div th:replace="client/fragments/layout::footer" id="footer" ></div>       
+</body>
+</html>

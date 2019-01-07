@@ -1,0 +1,176 @@
+
+body { 
+    font-size: 13px;  
+}
+.container-fluid {   
+    background-color: white;  
+}
+.header-support {
+    padding-top: 30px;
+    width: 300px;
+    float: right;
+}
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.container {
+    margin-bottom: 60px;
+ }
+.supportBorder {
+    
+    height: 50px;
+    padding-left: 80px;
+    font-size: 14px;
+    color: #7cbb01;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.navbar-default {
+    border-color: white;
+    
+}
+.jumbotron {
+    background: white;
+}
+
+.navbar-nav>li>a:hover {
+    border-bottom: 1px solid #7cbb01;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #7cbb01;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-left: -15px;
+    height: 50px;
+}
+.col-sm-4 img {
+    display: inline-block;
+    border: solid 4px #e5e5e5;
+    background: none;
+    border-radius: 1px;
+}
+.col-sm-4 {
+    margin-top: 20px;
+} 
+.col-sm-5 {
+    width: 41.66666667%;
+    left: 190px;
+    top: -42px;
+}
+.col-sm-6 {
+    margin-top: 20px;
+    width: 50%;
+    font-size: 17px;
+    margin-bottom: 20px;
+   
+}
+.w3-btn {
+    color: white;
+    border: 4px solid #fff;
+    border-radius: 10px;
+    padding: 10px 20px; 
+    font-size: 15px;
+    font-weight: bold;  
+}
+.col-md-12 h4 {
+    font-size: 35px;
+}
+.btn, .btn-1 {
+    margin-bottom: 30px;
+    margin-top: 100px;
+    font-size: 20px;
+    color: #fff;
+    background: #ff6600;
+    padding: 5px 30px;
+    border: none;
+} 
+.btn-2 {
+    margin-bottom: 30px;
+    margin-top: 50px;
+    font-size: 20px;
+    color: #fff;
+    background: #ff6600;
+    padding: 5px 30px;
+    border: none;
+}   
+ .buttom-left {
+    margin-top: -280px;
+    margin-left: 120px; 
+    padding: 5px 10px;  
+} 
+.buttom-right {
+    margin-top: -319px; 
+    margin-left: -135px;
+} 
+.item-body {
+    margin-top: -8px;
+} 
+.item-title {
+    margin-top: -40px;
+}
+.introtext {
+    margin-top: 20px; 
+    margin-left: 28px;
+}
+.col-md-12 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.btn {
+    margin-top: 120px;
+}
+.btn-1 {
+    margin-top: 70px;
+}
+.col-md-12 img {
+    margin-bottom: 35px;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    .buttom-left{
+        margin-left: -90px;
+        margin-top: 100px;
+        padding: 3px 7px;
+    }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    h4 {
+    font-size: 22px;
+}
+    .buttom-right {
+        margin-left: -149px;
+    }
+}
+
+#footer span{
+    color: #7cbb01;
+}
+
+.jumbotron{
+	padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.aboutjumbotron{
+	margin-bottom:0px;
+}
+
+.product{
+	margin-top:0px;
+	margin-bottom:0px;
+	padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.description-font{
+	
+	font-size:18px;
+}
+ 
+
+
+
+
+
+
